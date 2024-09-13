@@ -1,0 +1,44 @@
+2024-09-07 15:59:14,197 - INFO - Script started
+2024-09-07 15:59:14,197 - INFO - Opening terminal with command: source /home/instant1/goudas/venv/bin/activate && sudo /home/instant1/goudas/venv/bin/python /home/instant1/goudas/app.py; exec bash
+2024-09-07 15:59:16,198 - INFO - Opening terminal with command: /usr/bin/firefox-esr --kiosk https://goudas-portal.web.app/?landing=manufacturing; exec bash
+2024-09-07 15:59:16,199 - INFO - Script completed successfully
+2024-09-07 16:02:48,218 - INFO - Script started
+2024-09-07 16:02:48,218 - INFO - Opening terminal with command: source /home/instant1/goudas/venv/bin/activate && sudo /home/instant1/goudas/venv/bin/python /home/instant1/goudas/app.py; exec bash
+2024-09-07 16:02:50,219 - INFO - Opening terminal with command: /usr/bin/firefox-esr --kiosk https://goudas-portal.web.app/?landing=manufacturing; exec bash
+2024-09-07 16:02:50,221 - INFO - Script completed successfully
+2024-09-07 16:03:15,639 - INFO - Script started
+2024-09-07 16:03:15,639 - INFO - Opening terminal with command: source /home/instant1/goudas/venv/bin/activate && sudo /home/instant1/goudas/venv/bin/python /home/instant1/goudas/app.py; exec bash
+2024-09-07 16:03:17,640 - INFO - Opening terminal with command: /usr/bin/firefox-esr --kiosk https://goudas-portal.web.app/?landing=manufacturing; exec bash
+2024-09-07 16:03:17,641 - INFO - Script completed successfully
+2024-09-07 16:04:58,540 - INFO - Script started
+2024-09-07 16:04:58,540 - INFO - Opening terminal with command: source /home/instant1/goudas/venv/bin/activate && sudo /home/instant1/goudas/venv/bin/python /home/instant1/goudas/app.py; exec bash
+2024-09-07 16:05:00,541 - INFO - Opening terminal with command: /usr/bin/firefox-esr --kiosk https://goudas-portal.web.app/?landing=manufacturing; exec bash
+2024-09-07 16:05:00,542 - INFO - Script completed successfully
+2024-09-07 16:08:46,184 - INFO - Script started
+2024-09-07 16:08:46,184 - INFO - Running Python script: source /home/instant1/goudas/venv/bin/activate && sudo /home/instant1/goudas/venv/bin/python /home/instant1/goudas/app.py
+2024-09-07 16:08:46,185 - ERROR - Failed to run Python script. Error: Command 'source /home/instant1/goudas/venv/bin/activate && sudo /home/instant1/goudas/venv/bin/python /home/instant1/goudas/app.py' returned non-zero exit status 127.
+2024-09-07 16:08:48,186 - INFO - Opening Firefox in kiosk mode: /usr/bin/firefox-esr --kiosk https://goudas-portal.web.app/?landing=manufacturing
+2024-09-07 16:08:48,599 - ERROR - Failed to open Firefox. Error: Command '/usr/bin/firefox-esr --kiosk https://goudas-portal.web.app/?landing=manufacturing' returned non-zero exit status 1.
+2024-09-07 16:08:48,599 - INFO - Script completed successfully
+2024-09-07 16:10:00,287 - INFO - Script started
+2024-09-07 16:10:00,287 - INFO - Running Python script: source /home/instant1/goudas/venv/bin/activate && sudo /home/instant1/goudas/venv/bin/python /home/instant1/goudas/app.py
+2024-09-07 16:10:00,292 - ERROR - Failed to run Python script. Error: Command 'source /home/instant1/goudas/venv/bin/activate && sudo /home/instant1/goudas/venv/bin/python /home/instant1/goudas/app.py' returned non-zero exit status 127.
+2024-09-07 16:10:02,292 - INFO - Opening Firefox in kiosk mode: /usr/bin/firefox-esr --kiosk https://goudas-portal.web.app/?landing=manufacturing
+2024-09-07 16:10:34,258 - INFO - Firefox opened successfully
+2024-09-07 16:10:34,259 - INFO - Script completed successfully
+2024-09-07 16:12:15,714 - INFO - Script started
+2024-09-07 16:12:15,714 - INFO - Opening Firefox in kiosk mode: /usr/bin/firefox-esr --kiosk https://goudas-portal.web.app/?landing=manufacturing
+2024-09-07 16:13:35,019 - INFO - Script started
+2024-09-07 16:13:35,019 - INFO - Opening Firefox in kiosk mode: /usr/bin/firefox-esr --kiosk https://goudas-portal.web.app/?landing=manufacturing
+2024-09-07 16:13:35,481 - ERROR - Failed to open Firefox. Error: Command '/usr/bin/firefox-esr --kiosk https://goudas-portal.web.app/?landing=manufacturing' returned non-zero exit status 1.
+2024-09-07 16:13:35,481 - INFO - Script completed successfully
+2024-09-07 16:21:46,604 - INFO - Script started
+2024-09-07 16:21:46,605 - INFO - Opening Firefox in kiosk mode: /usr/bin/firefox-esr --kiosk https://goudas-portal.web.app/?landing=manufacturing
+2024-09-07 16:22:55,989 - INFO - Script started
+2024-09-07 16:22:55,989 - INFO - Opening Firefox in kiosk mode: /usr/bin/firefox-esr --kiosk https://goudas-portal.web.app/?landing=manufacturing
+2024-09-07 16:23:08,929 - INFO - Firefox opened successfully
+2024-09-07 16:23:08,929 - INFO - Script completed successfully
+2024-09-07 16:23:51,210 - INFO - Script started
+2024-09-07 16:23:51,210 - INFO - Running Python script: source /home/instant1/goudas/venv/bin/activate && sudo /home/instant1/goudas/venv/bin/python /home/instant1/goudas/app.py
+2024-09-07 16:23:51,212 - ERROR - Failed to run Python script. Error: Command 'source /home/instant1/goudas/venv/bin/activate && sudo /home/instant1/goudas/venv/bin/python /home/instant1/goudas/app.py' returned non-zero exit status 127.
+2024-09-07 16:23:53,212 - INFO - Opening Firefox in kiosk mode: /usr/bin/firefox-esr --kiosk https://goudas-portal.web.app/?landing=manufacturing

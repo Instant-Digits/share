@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=GoudasKiosk
+Exec=python /home/instant1/goudas/start.py
+Icon=utilities-terminal
+Terminal=false
+Type=Application
