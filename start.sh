@@ -1,8 +1,11 @@
 #!/bin/bash
 
+# Get the current directory
+CURRENT_DIR="/home/instant2/share" #pwd
+
 # Path to the Python virtual environment and script
-VENV_PATH="/home/instant1/goudas/venv"
-SCRIPT_PATH="/home/instant1/goudas/app.py"
+VENV_PATH="$CURRENT_DIR/venv"
+SCRIPT_PATH="$CURRENT_DIR/app.py"
 
 # Open a new terminal to run the Python script
 lxterminal -e "source $VENV_PATH/bin/activate && sudo $VENV_PATH/bin/python $SCRIPT_PATH; exec bash" &

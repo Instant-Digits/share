@@ -116,7 +116,7 @@ def generateSkidLabel(data, logoPath='logoBW.png', width=696, verticalMargin=35,
 
     # Generate QR code
     qr = qrcode.QRCode(version=1, box_size=15, border=2)
-    qr.add_data(data['item']+'_'+data['lotNumber']+'_'+str(len(data['printedStickers']))+'G')
+    qr.add_data(data['timeStamp']+'@'+data['item']+'@'+data['lotNumber']+'@'+str(len(data['printedStickers']))+'G')
     qr.make(fit=True)
     qrImage = qr.make_image(fill='black', back_color='white')
     qrWidth, qrHeight = qrImage.size
