@@ -8,7 +8,7 @@ VENV_PATH="$CURRENT_DIR/venv"
 SCRIPT_PATH="$CURRENT_DIR/app.py"
 
 # Open a new terminal to run the Python script
-lxterminal -e "source $VENV_PATH/bin/activate && sudo $VENV_PATH/bin/python $SCRIPT_PATH; exec bash" &
+lxterminal -e "cd $CURRENT_DIR && source $VENV_PATH/bin/activate && sudo $VENV_PATH/bin/python $SCRIPT_PATH; exec bash" &
 
 # Wait for a few seconds to ensure the Python script starts
 # sleep 2
