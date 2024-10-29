@@ -1,5 +1,7 @@
 #!/bin/bash
 
+pkill lxterminal
+
 # Get the current directory
 CURRENT_DIR="/home/instant2/share" #pwd
 
@@ -20,4 +22,4 @@ FIREFOX_PATH="/usr/bin/firefox-esr"
 URL="https://goudas-portal.web.app/?landing=manufacturing"
 
 # Open a new terminal to run Firefox in kiosk mode
-lxterminal -e "$FIREFOX_PATH --kiosk $URL; exec bash" &
+lxterminal -e "chromium-browser --kiosk $URL" #"$FIREFOX_PATH --kiosk $URL; exec bash" &
