@@ -41,6 +41,22 @@ def printSkidLabel():
             'status': False,
             'message': str(e)
         }), 400
+    
+
+@app.route('/printPickerSticker', methods=['POST'])
+def printPickerSticker():
+    try:
+        data = request.get_json()
+        for path in LabelCreate.generatePickerLabel(data):
+            out=PrintLabel(path)
+        return jsonify(out)
+    except Exception as e:
+        print(f"Error:", e)
+        # Return an error response if the request is not JSON
+        return jsonify({
+            'status': False,
+            'message': str(e)
+        }), 400
 
 
 # Run the application
