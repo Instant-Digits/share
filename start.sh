@@ -18,8 +18,8 @@ lxterminal -e "cd $CURRENT_DIR && source $VENV_PATH/bin/activate && sudo $VENV_P
 # Path to the Firefox browser
 FIREFOX_PATH="/usr/bin/firefox-esr"
 
-# URL to open in Firefox
-URL="https://goudas-portal.web.app/?landing=manufacturing"
+# URL to open in Firefox manufacturing operation
+URL="https://goudas-portal.web.app/?landing=operation"
 
 # Open a new terminal to run Firefox in kiosk mode
 lxterminal -e "chromium-browser --kiosk $URL" #"$FIREFOX_PATH --kiosk $URL; exec bash" &
