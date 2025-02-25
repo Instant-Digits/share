@@ -105,10 +105,10 @@ def generateSkidLabel(data, logoPath='logoBW.png', width=696, verticalMargin=35,
     dummyImage = Image.new("RGB", (width, 1), "white")
     draw = ImageDraw.Draw(dummyImage)
 
-    casePerSkid = data['printedStickers'][-1]['casePerSkid'] if len(data['printedStickers'])>0 and 'casePerSkid' in data['printedStickers'][-1] else data['casePerSkid']
+    casePerSkid = data['printedStickers'][-1]['casesInSkid'] if len(data['printedStickers'])>0 and 'casesInSkid' in data['printedStickers'][-1] else data['casePerSkid']
     # Define text, positions, and alignments
     texts = [
-        {"text":str(casePerSkid)+' X #'+data['item']+ ' '+data['itemLabel'].upper(), "x": width // 2, "width": width * 0.98, "align": "center", "fontSize": 65, "isBold": True},
+        {"text":str(casePerSkid)+' Cases X #'+data['item']+ ' '+data['itemLabel'].upper(), "x": width // 2, "width": width * 0.98, "align": "center", "fontSize": 65, "isBold": True},
         {"text":' ' +'--------------------'*6+' ', "x": width // 2, "width": width * 0.95, "align": "center", "fontSize": 30, "isBold": True},        
         {"text": 'BATCH SKID NO. - ' + str(len(data['printedStickers'])), "x": width // 2, "width": width * 0.95, "align": "center", "fontSize": 60, "isBold": True},
         {"text":' ' +'--------------------'*6+' ', "x": width // 2, "width": width * 0.95, "align": "center", "fontSize": 30, "isBold": True},
@@ -274,7 +274,7 @@ if __name__ == "__main__":
         'maxSkids': 0.22,
         'poAvailableQts': 11.350227272727352,
         'poQuantity': 42000,
-        'printedStickers': [{'name': 'Others', 'timeStamp': '2024-09-05 23:03:16_396'}],
+        'printedStickers': [{'name': 'Others','casesInSkid' 'timeStamp': '2024-09-05 23:03:16_396'}],
         'quantityToBeBuild': 11,
         'requestedBy': 'Santhiran',
         'timeStamp': '2024-09-05 23:02:19_654',
