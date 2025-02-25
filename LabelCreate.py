@@ -108,7 +108,11 @@ def generateSkidLabel(data, logoPath='logoBW.png', width=696, verticalMargin=35,
     casePerSkid = data['printedStickers'][-1]['casesInSkid'] if len(data['printedStickers'])>0 and 'casesInSkid' in data['printedStickers'][-1] else data['casePerSkid']
     # Define text, positions, and alignments
     texts = [
+<<<<<<< HEAD
         {"text":str(casePerSkid)+' Cases X #'+data['item']+ ' '+data['itemLabel'].upper(), "x": width // 2, "width": width * 0.98, "align": "center", "fontSize": 65, "isBold": True},
+=======
+        {"text":str(casePerSkid)+' Cases X #'+data['item']+ ' '+data['itemLabel'].upper(), "x": width // 2, "width": width * 0.98, "align": "center", "fontSize": 60, "isBold": True},
+>>>>>>> e0bcd96d3c7b82330b4cbbd6e2ac73669252cdb1
         {"text":' ' +'--------------------'*6+' ', "x": width // 2, "width": width * 0.95, "align": "center", "fontSize": 30, "isBold": True},        
         {"text": 'BATCH SKID NO. - ' + str(len(data['printedStickers'])), "x": width // 2, "width": width * 0.95, "align": "center", "fontSize": 60, "isBold": True},
         {"text":' ' +'--------------------'*6+' ', "x": width // 2, "width": width * 0.95, "align": "center", "fontSize": 30, "isBold": True},
