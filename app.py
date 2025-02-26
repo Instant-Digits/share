@@ -58,7 +58,21 @@ def printPickerSticker():
             'message': str(e)
         }), 400
 
+@app.route('/printGeneralSticker', methods=['POST'])
+def printGeneralSticker():
+    try:
+        data = request.get_json()
+        print(data)
+        out=PrintLabel(LabelCreate.generateGeneralLabel(data))
+        return jsonify(out)
+    except Exception as e:
+        print(f"Error:", e)
+        # Return an error response if the request is not JSON
+        return jsonify({
+            'status': False,
+            'message': str(e)
+        }), 400
 
 # Run the application
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)

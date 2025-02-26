@@ -108,11 +108,7 @@ def generateSkidLabel(data, logoPath='logoBW.png', width=696, verticalMargin=35,
     casePerSkid = data['printedStickers'][-1]['casesInSkid'] if len(data['printedStickers'])>0 and 'casesInSkid' in data['printedStickers'][-1] else data['casePerSkid']
     # Define text, positions, and alignments
     texts = [
-<<<<<<< HEAD
-        {"text":str(casePerSkid)+' Cases X #'+data['item']+ ' '+data['itemLabel'].upper(), "x": width // 2, "width": width * 0.98, "align": "center", "fontSize": 65, "isBold": True},
-=======
         {"text":str(casePerSkid)+' Cases X #'+data['item']+ ' '+data['itemLabel'].upper(), "x": width // 2, "width": width * 0.98, "align": "center", "fontSize": 60, "isBold": True},
->>>>>>> e0bcd96d3c7b82330b4cbbd6e2ac73669252cdb1
         {"text":' ' +'--------------------'*6+' ', "x": width // 2, "width": width * 0.95, "align": "center", "fontSize": 30, "isBold": True},        
         {"text": 'BATCH SKID NO. - ' + str(len(data['printedStickers'])), "x": width // 2, "width": width * 0.95, "align": "center", "fontSize": 60, "isBold": True},
         {"text":' ' +'--------------------'*6+' ', "x": width // 2, "width": width * 0.95, "align": "center", "fontSize": 30, "isBold": True},
@@ -254,6 +250,80 @@ def generatePickerLabel(data, logoPath='logoBW.png', width=696, verticalMargin=3
 
     print(outPut)
     return outPut
+
+
+def generateGeneralLabel(data, logoPath='logoBW.png', width=696, verticalMargin=35):
+    # Create a drawing context to calculate the required height
+    dummyImage = Image.new("RGB", (width, 1), "white")
+    draw = ImageDraw.Draw(dummyImage)
+
+    outputPath='GeneralLabel'+'.png'
+    texts = [
+            {"text":' ' +'--------------------'*6+' ', "x": width // 2, "width": width * 0.95, "align": "center", "fontSize": 30, "isBold": True},        
+            {"text": 'SKID ID - ' + data['skidID'], "x": width // 2, "width": width * 0.95, "align": "center", "fontSize": 60, "isBold": True},
+            {"text":' ' +'--------------------'*6+' ', "x": width // 2, "width": width * 0.95, "align": "center", "fontSize": 30, "isBold": True},
+            {"text":  'PRE-PRINTED DATE : '+ data['timeStamp'].split(' ')[0], "x": 30, "width": width * 0.95, "align": "left", "fontSize": 32, "isBold": False},    
+        ]
+    # Generate QR code
+    qr = qrcode.QRCode(version=1, box_size=16, border=1)
+    qr.add_data(data['timeStamp']+'@'+'GeneralLabel'+'@'+data['skidID']+'@'+'G')
+    qr.make(fit=True)
+    qrImage = qr.make_image(fill='black', back_color='white')
+    qrWidth, qrHeight = qrImage.size
+
+    # Calculate total height needed for the label
+    totalTextHeight = 0
+    currentY = 0
+    logoHeight = 0
+
+    # If a logo path is provided, load and paste the logo
+    if logoPath:
+        logo = Image.open(logoPath)
+        logo_width, logo_height = logo.size
+        logo_resized = logo.resize((width // 3, int((width // 3) * logo_height / logo_width)))  # Resize logo while maintaining aspect ratio
+        logo_x = (width - logo_resized.width) // 2
+        logoHeight = logo_resized.height
+
+    totalTextHeight = logoHeight
+    verticalMargin=25
+    for textInfo in texts:
+        textHeight = drawText(draw, textInfo["x"], currentY, textInfo["text"], textInfo["width"], textInfo['align'], textInfo["fontSize"], textInfo["isBold"], verticalMargin)
+        totalTextHeight += textHeight + verticalMargin
+        currentY += textHeight + verticalMargin
+    
+    # Add space for QR code
+    imageHeight = totalTextHeight + qrHeight + 80  # Add some extra padding
+    image = Image.new("RGB", (width, imageHeight), "white")
+    draw = ImageDraw.Draw(image)
+
+    # If a logo path is provided, load and paste the logo
+    if logoPath:
+        image.paste(logo_resized, (3, 10)) 
+        drawText(draw, logo_resized.width + 4, 10 + logoHeight * 0.25, 'Mr.Goudas', width - logo_resized.width - 10, 'left', 98, True, 0, 'timeNew.ttf')
+        drawText(draw, logo_resized.width + 4, 10 + logoHeight * 0.6, 'General Label', width - logo_resized.width - 10, 'left', 68, True, 0, 'timeNew.ttf')
+
+    # Draw each text onto the final image
+    currentY = 30 + logoHeight    
+    for textInfo in texts:
+        textHeight = drawText(draw, textInfo["x"], currentY, textInfo["text"], textInfo["width"], textInfo['align'], 
+                            textInfo["fontSize"], textInfo["isBold"], verticalMargin)
+        currentY += textHeight + verticalMargin
+
+    # Paste the QR code at the bottom
+    qr_x = (width - qrWidth) // 2
+    image.paste(qrImage, (qr_x, currentY))  # 20 pixels padding from the bottom
+
+    currentY+=qrHeight+10
+    drawText(draw, width // 2, currentY, 'www.goudas.ca', width , 'center', 28, True, 0, 'timeNew.ttf')
+
+
+    # Save the image
+    image.save(outputPath)
+   
+
+    print(outputPath)
+    return outputPath
+
 
 # Example usage
 if __name__ == "__main__":
@@ -450,4 +520,4 @@ if __name__ == "__main__":
     }
 
 
-    generatePickerLabel(data2)
+    generateGeneralLabel({'skidID' :'0000001', 'timeStamp':'sdasd4as4d'})
