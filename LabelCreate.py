@@ -107,17 +107,19 @@ def generateSkidLabel(data, logoPath='logoBW.png', width=696, verticalMargin=35,
 
     casePerSkid = data['printedStickers'][-1]['casesInSkid'] if len(data['printedStickers'])>0 and 'casesInSkid' in data['printedStickers'][-1] else data['casePerSkid']
     # Define text, positions, and alignments
+
     texts = [
-        {"text":str(casePerSkid)+' Cases X #'+data['item']+ ' '+data['itemLabel'].upper(), "x": width // 2, "width": width * 0.98, "align": "center", "fontSize": 60, "isBold": True},
+        {"text":str(casePerSkid)+' Cases X #'+data['item']+ ' '+data['itemLabel'].upper(), "x": width // 2, "width": width * 0.98, "align": "center", "fontSize": 55, "isBold": True},
         {"text":' ' +'--------------------'*6+' ', "x": width // 2, "width": width * 0.95, "align": "center", "fontSize": 30, "isBold": True},        
-        {"text": 'BATCH SKID NO. - ' + str(len(data['printedStickers'])), "x": width // 2, "width": width * 0.95, "align": "center", "fontSize": 60, "isBold": True},
+        {"text": 'SKID ID - ' + data['printedStickers'][-1]['skidID'], "x": width // 2, "width": width * 0.95, "align": "center", "fontSize": 60, "isBold": True},
         {"text":' ' +'--------------------'*6+' ', "x": width // 2, "width": width * 0.95, "align": "center", "fontSize": 30, "isBold": True},
         {"text": "Lot No.: " + data['lotNumber'], "x": 40, "width": width * 0.95, "align": "left", "fontSize": 60, "isBold": True},           
     ]
 
     # Generate QR code
-    qr = qrcode.QRCode(version=1, box_size=22, border=1)
-    qr.add_data(data['timeStamp']+'@'+data['item']+'@'+data['lotNumber']+'@'+str(len(data['printedStickers']))+'G')
+    qr = qrcode.QRCode(version=1, box_size=16, border=1)
+
+    qr.add_data(data['timeStamp']+'@'+'PackerLabel'+'@'+data['printedStickers'][-1]['skidID']+'@'+data['item']+'@'+'G')
     qr.make(fit=True)
     qrImage = qr.make_image(fill='black', back_color='white')
     qrWidth, qrHeight = qrImage.size
