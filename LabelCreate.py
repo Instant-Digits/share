@@ -108,12 +108,14 @@ def generateSkidLabel(data, logoPath='logoBW.png', width=696, verticalMargin=35,
     casePerSkid = data['printedStickers'][-1]['casesInSkid'] if len(data['printedStickers'])>0 and 'casesInSkid' in data['printedStickers'][-1] else data['casePerSkid']
     # Define text, positions, and alignments
 
+    lotSkidSerial= (data['lotSkidSerialStart'] if 'lotSkidSerialStart' in data else 0)+len(data['printedStickers'])
+
     texts = [
         {"text":str(casePerSkid)+' Cases X #'+data['item']+ ' '+data['itemLabel'].upper(), "x": width // 2, "width": width * 0.98, "align": "center", "fontSize": 55, "isBold": True},
         {"text":' ' +'--------------------'*6+' ', "x": width // 2, "width": width * 0.95, "align": "center", "fontSize": 30, "isBold": True},        
         {"text": 'SKID ID - ' + data['printedStickers'][-1]['skidID'], "x": width // 2, "width": width * 0.95, "align": "center", "fontSize": 60, "isBold": True},
         {"text":' ' +'--------------------'*6+' ', "x": width // 2, "width": width * 0.95, "align": "center", "fontSize": 30, "isBold": True},
-        {"text": "Lot No.: " + data['lotNumber'], "x": 40, "width": width * 0.95, "align": "left", "fontSize": 60, "isBold": True},           
+        {"text": "Lot #: " + data['lotNumber']+' - '+str(lotSkidSerial), "x": 40, "width": width * 0.95, "align": "left", "fontSize": 55, "isBold": True},           
     ]
 
     # Generate QR code

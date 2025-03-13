@@ -3,7 +3,7 @@
 pkill lxterminal
 
 # Get the current directory
-CURRENT_DIR="/home/instant2/share" #pwd
+CURRENT_DIR="/home/instant1/share" #pwd
 
 # Path to the Python virtual environment and script
 VENV_PATH="$CURRENT_DIR/venv"
@@ -19,7 +19,7 @@ lxterminal -e "cd $CURRENT_DIR && source $VENV_PATH/bin/activate && sudo $VENV_P
 FIREFOX_PATH="/usr/bin/firefox-esr"
 
 # URL to open in Firefox manufacturing operation
-URL="https://goudas-portal.web.app/?landing=operation"
+URL="https://goudas-portal.web.app/?landing=manufacturing"
 
 # Open a new terminal to run Firefox in kiosk mode
 lxterminal -e "chromium-browser --kiosk $URL" #"$FIREFOX_PATH --kiosk $URL; exec bash" &
