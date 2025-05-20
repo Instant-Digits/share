@@ -105,7 +105,11 @@ def generateSkidLabel(data, logoPath='logoBW.png', width=696, verticalMargin=35,
     dummyImage = Image.new("RGB", (width, 1), "white")
     draw = ImageDraw.Draw(dummyImage)
 
-    casePerSkid = data['printedStickers'][-1]['casesInSkid'] if len(data['printedStickers'])>0 and 'casesInSkid' in data['printedStickers'][-1] else data['casePerSkid']
+    index = data['specificSticker'] if 'specificSticker' in data else (len(data['printedStickers'])-1)
+
+    casePerSkid = data['printedStickers'][index]['casesInSkid'] if 'casesInSkid' in data['printedStickers'][index] else data['casePerSkid']
+    
+    
     # Define text, positions, and alignments
 
     lotSkidSerial= (data['lotSkidSerialStart'] if 'lotSkidSerialStart' in data else 0)+len(data['printedStickers'])
@@ -113,7 +117,7 @@ def generateSkidLabel(data, logoPath='logoBW.png', width=696, verticalMargin=35,
     texts = [
         {"text":str(casePerSkid)+' Cases X #'+data['item']+ ' '+data['itemLabel'].upper(), "x": width // 2, "width": width * 0.98, "align": "center", "fontSize": 55, "isBold": True},
         {"text":' ' +'--------------------'*6+' ', "x": width // 2, "width": width * 0.95, "align": "center", "fontSize": 30, "isBold": True},        
-        {"text": 'SKID ID - ' + data['printedStickers'][-1]['skidID'], "x": width // 2, "width": width * 0.95, "align": "center", "fontSize": 60, "isBold": True},
+        {"text": 'SKID ID - ' + data['printedStickers'][index]['skidID'], "x": width // 2, "width": width * 0.95, "align": "center", "fontSize": 60, "isBold": True},
         {"text":' ' +'--------------------'*6+' ', "x": width // 2, "width": width * 0.95, "align": "center", "fontSize": 30, "isBold": True},
         {"text": "Lot #: " + data['lotNumber']+' - '+str(lotSkidSerial), "x": 40, "width": width * 0.95, "align": "left", "fontSize": 55, "isBold": True},           
     ]
@@ -121,7 +125,7 @@ def generateSkidLabel(data, logoPath='logoBW.png', width=696, verticalMargin=35,
     # Generate QR code
     qr = qrcode.QRCode(version=1, box_size=16, border=1)
 
-    qr.add_data(data['timeStamp']+'@'+'PackerLabel'+'@'+data['printedStickers'][-1]['skidID']+'@'+data['item']+'@'+'G')
+    qr.add_data(data['timeStamp']+'@'+'PackerLabel'+'@'+data['printedStickers'][index]['skidID']+'@'+data['item']+'@'+'G')
     qr.make(fit=True)
     qrImage = qr.make_image(fill='black', back_color='white')
     qrWidth, qrHeight = qrImage.size
@@ -420,7 +424,7 @@ if __name__ == "__main__":
         },
         "name": "BLESSING SUPERMARKET",
         "terms": 30,
-        "date": "2024-09-11",
+        "date": "2024-09index1",
         "salesRepEmail": False,
         "timeStamp": "2024-06-05 16:45:43_700",
         "namePhone": "647 330 5291",

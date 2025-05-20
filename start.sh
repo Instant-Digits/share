@@ -3,7 +3,7 @@
 pkill lxterminal
 
 # Get the current directory
-CURRENT_DIR="/home/instant1/share" #pwd
+CURRENT_DIR="/home/instant2/share" #pwd
 
 # Path to the Python virtual environment and script
 VENV_PATH="$CURRENT_DIR/venv"
