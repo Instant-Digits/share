@@ -112,7 +112,7 @@ def generateSkidLabel(data, logoPath='logoBW.png', width=696, verticalMargin=35,
     
     # Define text, positions, and alignments
 
-    lotSkidSerial= (data['lotSkidSerialStart'] if 'lotSkidSerialStart' in data else 0)+len(data['printedStickers'])
+    lotSkidSerial= (data['lotSkidSerialStart'] if 'lotSkidSerialStart' in data else 0)+(index+1)
 
     texts = [
         {"text":str(casePerSkid)+' Cases X #'+data['item']+ ' '+data['itemLabel'].upper(), "x": width // 2, "width": width * 0.98, "align": "center", "fontSize": 55, "isBold": True},
